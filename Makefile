@@ -6,7 +6,7 @@
 #    By: amylle <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 14:54:05 by amylle            #+#    #+#              #
-#    Updated: 2024/03/28 18:23:17 by amylle           ###   ########.fr        #
+#    Updated: 2024/03/28 18:32:40 by amylle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ SRCS		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS)) $(addprefix $(LIBFT_DIR)/, $(L
 OBJS 		= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
 CC			= cc
-RM			= rm -f
+RM			= rm -rf
 CFLAGS		= -Wall -Werror -Wextra -I$(INC_DIR)
 
 NAME		= libft.a
@@ -59,8 +59,9 @@ comp_mes:
 
 all: 		$(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c				
-					@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+				@mkdir -p $(@D)
+				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	comp_mes $(OBJS) 
 				@echo "$(BOLD_YELLOW)Making library"
@@ -68,8 +69,8 @@ $(NAME):	comp_mes $(OBJS)
 				@echo "$(BOLD_PURPLE)Library creation successful yippee"
 
 clean:
-				@$(RM) $(OBJS) $(BONUS_OBJS)
-				@echo "$(BOLD_YELLOW)Removing .o files"
+				@$(RM) $(OBJ_DIR)
+				@echo "$(BOLD_YELLOW)Removing object files and directory"
 
 fclean:		clean
 				@$(RM) $(NAME)
