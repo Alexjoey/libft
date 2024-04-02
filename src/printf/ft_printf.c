@@ -18,7 +18,7 @@ int	ft_printf(const char *str, ...)
 	int		printcount;
 	int		i;
 
-	if !(str)
+	if (!str)
 		return (-1);
 	va_start (args, str);
 	i = -1;
