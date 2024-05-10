@@ -6,7 +6,7 @@
 #    By: amylle <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 14:54:05 by amylle            #+#    #+#              #
-#    Updated: 2024/05/10 14:52:36 by amylle           ###   ########.fr        #
+#    Updated: 2024/05/10 14:54:58 by amylle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,12 @@ BOLD_YELLOW	=	\033[1;33m
 
 NO_COLOR	=	\033[0m
 
-comp_mes:
-	@echo "$(BOLD_YELLOW)Compiling object files"
 #-------------------------RULES-----------------------------------------
 
 all: 		$(NAME)
+
+comp_mes:
+	@echo "$(BOLD_YELLOW)Compiling object files"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 				@mkdir -p $(@D)
