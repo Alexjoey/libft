@@ -6,7 +6,7 @@
 /*   By: amylle <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:33:41 by amylle            #+#    #+#             */
-/*   Updated: 2023/11/06 13:52:38 by amylle           ###   ########.fr       */
+/*   Updated: 2024/05/10 14:46:17 by amylle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include "ft_printf.h"
 
 typedef struct s_list
 {
