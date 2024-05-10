@@ -6,7 +6,7 @@
 #    By: amylle <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 14:54:05 by amylle            #+#    #+#              #
-#    Updated: 2024/03/28 18:32:40 by amylle           ###   ########.fr        #
+#    Updated: 2024/05/10 14:52:36 by amylle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ PRINTF_SRCS	= ft_formats.c ft_printf.c ft_format_char.c ft_isformat.c\
 			  ft_format_unsigned_decimal.c ft_itoa_base.c\
 			  ft_format_lowhex.c ft_format_highhex.c ft_format_pointer.c
 
-SRCS		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS)) $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS))
+SRCS		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS))\
+			  $(addprefix $(PRINTF_DIR)/, $(PRINTF_SRCS))
 
 OBJS 		= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
