@@ -109,4 +109,6 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
 
+long			ft_atol(const char *nptr);
+
 #endif
