@@ -82,7 +82,7 @@ char	*ft_getbuffer(char *buffer)
 	char	*nextline;
 	char	*temp;
 
-	temp == NULL;
+	temp = NULL;
 	nextline = ft_strchr(buffer, '\n');
 	if (nextline && *(nextline + 1) != 0)
 		temp = ft_substr(nextline + 1, 0, ft_strlen(nextline + 1));
