@@ -62,19 +62,33 @@ static char	*ft_strjoingnl(char *str, char const *buff)
 
 static char	*ft_getline(char *buffer)
 {
-	char	*nxtline;
+	char	*nextline;
 	char	*line;
 
 	if (!buffer[0])
 		return (NULL);
-	nxtline = ft_strchr(buffer, '\n');
-	if (!nxtline)
-	{
+	nextline = ft_strchr(buffer, '\n');
+	if (nextline)
+		line = ft_substr(buffer, 0, nextline - buffer + 1);
+	else
 		line = ft_substr(buffer, 0, ft_strlen(buffer) + 1);
-		return (line);
-	}
-	line = ft_substr(buffer, 0, nxtline - buffer + 1);
+	if (!line)
+		return (NULL);
 	return (line);
+}
+
+char	*ft_getbuffer(char *buffer)
+{
+	char	*nextline;
+	char	*temp;
+
+	nextline = ft_strchr(buffer, '\n');
+	if (nextline && *(nextline + 1) != 0)
+		temp = ft_substr(nextline + 1, 0, ft_strlen(nextline + 1));
+	free (buffer);
+	if (!nextline || !temp)
+		return (NULL);
+	return (temp);
 }
 
 static char	*ft_getbuffer(char *buffer)
