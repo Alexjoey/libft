@@ -35,7 +35,8 @@ PRINTF_SRCS	= ft_formats.c ft_printf.c ft_format_char.c ft_isformat.c\
 			  ft_format_lowhex.c ft_format_highhex.c ft_format_pointer.c
 
 SRCS		= $(addprefix $(LIBFT_DIR)/, $(LIBFT_SRCS))\
-			  $(addprefix $(PRINTF_DIR)/, $(PRINTF_SRCS))
+			  $(addprefix $(PRINTF_DIR)/, $(PRINTF_SRCS))\
+			  src/gnl/get_next_line.c
 
 OBJS 		= $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 

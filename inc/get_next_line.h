@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amylle <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 14:25:59 by amylle            #+#    #+#             */
-/*   Updated: 2023/11/06 14:26:03 by amylle           ###   ########.fr       */
+/*   Created: 2023/11/17 15:27:10 by amylle            #+#    #+#             */
+/*   Updated: 2023/11/17 16:59:47 by amylle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_strchr(const char *s, int c)
-{
-	int			i;
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
-	}
-	if (s[i] == (char)c)
-		return ((char *)(s + i));
-	return (NULL);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5 
+# endif
+
+char	*get_next_line(int fd);
+
+#endif
