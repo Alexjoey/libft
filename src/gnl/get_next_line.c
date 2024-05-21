@@ -91,28 +91,6 @@ char	*ft_getbuffer(char *buffer)
 	return (temp);
 }
 
-static char	*ft_getbuffer(char *buffer)
-{
-	char	*nxtline;
-	char	*temp;
-
-	nxtline = ft_strchr(buffer, '\n');
-	if (!nxtline)
-	{
-		free (buffer);
-		return (NULL);
-	}
-	temp = ft_substr(buffer, nxtline - buffer + 1, \
-			buffer + ft_strlen(buffer) - nxtline);
-	if (!temp)
-	{
-		free (buffer);
-		return (NULL);
-	}
-	free (buffer);
-	return (temp);
-}
-
 static char	*read_file(int fd, char *str)
 {
 	char	*buffer;
