@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -34,5 +34,30 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	res[i + j] = '\0';
+	return (res);
+}
+
+char	*ft_strjoinfree(char *str, char const *buff)
+{
+	int		j;
+	int		i;
+	char	*res;
+
+	if (!str)
+		str = ft_calloc(1, 1);
+	if (!str || !buff)
+		return (NULL);
+	res = (char *)malloc((ft_strlen(str) + ft_strlen(buff) + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	i = -1;
+	if (str)
+		while (str[++i])
+			res[i] = str[i];
+	j = -1;
+	while (buff[++j])
+		res[i + j] = buff[j];
+	res[i + j] = '\0';
+	free (str);
 	return (res);
 }

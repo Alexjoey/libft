@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "libft.h"
+#include "../../inc/libft.h"
 /*
 char	*getskipline(char **buffer)
 {
@@ -35,30 +34,6 @@ char	*getskipline(char **buffer)
 	return (ret);
 }
 */
-static char	*ft_strjoingnl(char *str, char const *buff)
-{
-	int		j;
-	int		i;
-	char	*res;
-
-	if (!str)
-		str = ft_calloc(1, 1);
-	if (!str || !buff)
-		return (NULL);
-	res = (char *)malloc((ft_strlen(str) + ft_strlen(buff) + 1) * sizeof(char));
-	if (!res)
-		return (NULL);
-	i = -1;
-	if (str)
-		while (str[++i])
-			res[i] = str[i];
-	j = -1;
-	while (buff[++j])
-		res[i + j] = buff[j];
-	res[i + j] = '\0';
-	free (str);
-	return (res);
-}
 
 static char	*ft_getline(char *buffer)
 {
@@ -111,7 +86,7 @@ static char	*read_file(int fd, char *str)
 			return (NULL);
 		}
 		buffer[readret] = 0;
-		str = ft_strjoingnl(str, buffer);
+		str = ft_strjoinfree(str, buffer);
 	}
 	free (buffer);
 	return (str);
@@ -129,5 +104,18 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_getline(buffer[fd]);
 	buffer[fd] = ft_getbuffer(buffer[fd]);
+	return (line);
+}
+
+char	*gnl_nobuffer(int fd)
+{
+	char	*line;
+
+	line = NULL;
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	line = read_file(fd, line);
+	if (!line)
+		return (NULL);
 	return (line);
 }
