@@ -110,6 +110,7 @@ char	*get_next_line(int fd)
 char	*gnl_nobuffer(int fd)
 {
 	char	*line;
+	char	*pointer;
 
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -117,5 +118,8 @@ char	*gnl_nobuffer(int fd)
 	line = read_file(fd, line);
 	if (!line)
 		return (NULL);
+	pointer = ft_strchr(line, '\n');
+	if (pointer)
+		pointer[1] = 0;
 	return (line);
 }
