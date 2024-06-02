@@ -67,17 +67,17 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 				@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	comp_mes $(OBJS) 
-				@echo "$(BOLD_YELLOW)Making library"
+				@echo "$(BOLD_YELLOW)Making libft"
 				@ar rcs $(NAME) $(OBJS)
-				@echo "$(BOLD_PURPLE)Library creation successful yippee"
+				@echo "$(BOLD_PURPLE)Library made successfully $(NO_COLOR)"
 
 clean:
 				@$(RM) $(OBJ_DIR)
-				@echo "$(BOLD_YELLOW)Removing object files and directory"
+				@echo "$(BOLD_YELLOW)Removing libft object files and directory"
 
 fclean:		clean
 				@$(RM) $(NAME)
-				@echo "$(BOLD_YELLOW)Removing binaries"
+				@echo "$(BOLD_YELLOW)Removing libft binaries"
 
 re:			fclean all
 
