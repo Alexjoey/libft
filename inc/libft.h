@@ -86,4 +86,5 @@ long			ft_atol(const char *nptr);
 char			*get_next_line(int fd);
 char			*gnl_nobuffer(int fd);
 
+int				ft_abs(int	n);
 #endif
