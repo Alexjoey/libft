@@ -87,4 +87,5 @@ char			*get_next_line(int fd);
 char			*gnl_nobuffer(int fd);
 
 int				ft_abs(int n);
+int				ft_min(int a, int b);
 #endif
