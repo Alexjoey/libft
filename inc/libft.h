@@ -57,7 +57,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *start, char const *end);
 char			*ft_strjoinfree(char *start, char const *end);
-char			*ft_strtrim(char const *s1, char const *set);
+char			*ft_strtrim(char const *str, char const *set);
 
 char			**ft_split(char const *s, char c);
 
@@ -88,4 +88,7 @@ char			*gnl_nobuffer(int fd);
 
 int				ft_abs(int n);
 int				ft_min(int a, int b);
+
+void			ft_freearray(char **array);
+char			**ft_duparray(char **array);
 #endif
