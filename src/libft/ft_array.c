@@ -27,9 +27,10 @@ char	**ft_duparray(char **array)
 	int			i;
 	char	**ret;
 
-	i = -1;
-	while (array[++i]);
-	ret = ft_calloc(i, sizeof(char *));
+	i = 0;
+	while (array[i])
+		i++;
+	ret = ft_calloc(i + 1, sizeof(char *));
 	i = -1;
 	while (array[++i])
 		ret[i] = ft_strdup(array[i]);
