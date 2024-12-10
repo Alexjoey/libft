@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 static size_t	word_count(char const *s, char c)
 {
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	wrdcnt = word_count(s, c);
-	ret = malloc(sizeof(char **) * (wrdcnt + 1));
+	ret = malloc(sizeof(char *) * (wrdcnt + 1));
 	if (!ret)
 		return (NULL);
 	make_words(ret, s, c, wrdcnt);
